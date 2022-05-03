@@ -81,6 +81,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -556,6 +557,26 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      climb2: -1096152022825325021
+      jump: -1189471701885857120
+      WalkShot1: -3980224236017479262
+      WalkShot2: -6271090890096223714
+      hit2: -56015716360501634
+      IdleShot: -127099875049243102
+      hit: -9027646783001708590
+      ClimbShot: -4787954170442957707
+      WalkShot3: -908345319746691865
+      JumpShot: -8597838965507327593
+      climb1: -5510698180526333002
+      Inch3: -3941958516476489863
+      NES - Mega Man - Mega Man_9: 1465760725573716603
+      walk3: -4281205360932804087
+      Idle1: 3759769847116632025
+      walk2: 7168026148589707504
+      Idle2: -7149361621245353589
+      Walk1: -7929272332112307307
+      NES - Mega Man - Mega Man_18: 361187766707842569
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

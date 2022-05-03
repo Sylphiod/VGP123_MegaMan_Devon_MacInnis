@@ -42,6 +42,7 @@ public class PlayerControl : MonoBehaviour
         {
             groundCheckRadius = 0.2f;
         }
+        
 
     }
 
@@ -56,6 +57,9 @@ public class PlayerControl : MonoBehaviour
             rb.velocity = Vector2.zero;
             rb.AddForce(Vector2.up * jumpForce);
         }
+
+
+       
 
         Vector2 moveDirection = new Vector2(horizontalInput * speed, rb.velocity.y);
         rb.velocity = moveDirection;
