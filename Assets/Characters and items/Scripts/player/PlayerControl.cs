@@ -66,5 +66,7 @@ public class PlayerControl : MonoBehaviour
 
         anim.SetFloat("speed", Mathf.Abs(horizontalInput));
         anim.SetBool("isGrounded", isGrounded);
+        anim.SetBool("shoot", Input.GetMouseButton(0));
+
     }
 }
