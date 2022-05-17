@@ -5,6 +5,8 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D), typeof(Animator), typeof(SpriteRenderer))]
 public class PlayerControl : MonoBehaviour
 {
+  
+
     Rigidbody2D rb;
     Animator anim;
     SpriteRenderer sr;
@@ -49,6 +51,10 @@ public class PlayerControl : MonoBehaviour
     void Update()
     {
         float horizontalInput = Input.GetAxisRaw("Horizontal");
+        
+        
+
+        
 
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, isGroundLayer);
 
@@ -59,7 +65,7 @@ public class PlayerControl : MonoBehaviour
         }
 
 
-       
+
 
         Vector2 moveDirection = new Vector2(horizontalInput * speed, rb.velocity.y);
         rb.velocity = moveDirection;
@@ -68,5 +74,18 @@ public class PlayerControl : MonoBehaviour
         anim.SetBool("IsGrounded", isGrounded);
         anim.SetBool("shoot", Input.GetMouseButton(0));
 
+        // || is used to make two if statements into one && flipX || && !flpX
+
+        //if (horizontalInput !=0)
+        //{ sr.flipX = (horizontalInput <0); }
+        if (horizontalInput > 0.1f)
+        {
+            sr.flipX = true;
+        }
+        if (horizontalInput < -0.1f)
+        {
+            sr.flipX = false;
+        }
+   
     }
 }
