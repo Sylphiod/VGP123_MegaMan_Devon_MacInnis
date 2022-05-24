@@ -128,4 +128,16 @@ public class PlayerControl : MonoBehaviour
         }
 
     }
+
+    IEnumerator JumpForceChange()
+    {
+        coroutineRunning = true;
+        jumpForce *= 2;
+
+        yield return new WaitForSeconds(5.0f);
+
+        jumpForce /= 2;
+        coroutineRunning = false;
+    }
+
 }
