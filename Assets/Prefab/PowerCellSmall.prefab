@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5318631154151984490}
   - component: {fileID: 8838717762269744011}
   - component: {fileID: 2263627617100213897}
+  - component: {fileID: -4879165110716543250}
   m_Layer: 0
   m_Name: PowerCellSmall
   m_TagString: Untagged
@@ -96,7 +97,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0.04}
@@ -133,3 +134,16 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &-4879165110716543250
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8902147297196182765}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c6d3448df5a46047bc119a5af560bfc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  curCollectible: 0

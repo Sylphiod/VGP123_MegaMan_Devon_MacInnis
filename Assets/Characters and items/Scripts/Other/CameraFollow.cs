@@ -23,7 +23,7 @@ public class CameraFollow : MonoBehaviour
 
             cameraTransform = transform.position;
 
-            cameraTransform.x = player.transform.position.x;
+            cameraTransform.x = Player.transform.position.x;
             cameraTransform.x = Mathf.Clamp(cameraTransform.x, minXClamp, maxXClamp);
 
             transform.position = cameraTransform;

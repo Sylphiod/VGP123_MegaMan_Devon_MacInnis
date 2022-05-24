@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D), typeof(Animator), typeof(SpriteRenderer))]
+
 public class PlayerControl : MonoBehaviour
 {
-  
+
 
     Rigidbody2D rb;
     Animator anim;
@@ -17,8 +18,32 @@ public class PlayerControl : MonoBehaviour
     public LayerMask isGroundLayer;
     public Transform groundCheck;
     public float groundCheckRadius;
+    bool coroutineRunning = false;
 
-    
+    private int _lives = 1;
+    public int maxLives = 3;
+
+    public int lives
+    {
+        get { return _lives; }
+        set
+        {
+            //if (_lives > value)
+            //respawn code here
+
+            _lives = value;
+
+            if (_lives > maxLives)
+                _lives = maxLives;
+
+            //if (_lives < 0)
+            //gameover
+
+            Debug.Log("Lives Set To: " + lives.ToString());
+        }
+    }
+
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -44,17 +69,17 @@ public class PlayerControl : MonoBehaviour
         {
             groundCheckRadius = 0.2f;
         }
-        
+
 
     }
 
     void Update()
     {
         float horizontalInput = Input.GetAxisRaw("Horizontal");
-        
-        
 
-        
+
+
+
 
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, isGroundLayer);
 
@@ -86,6 +111,21 @@ public class PlayerControl : MonoBehaviour
         {
             sr.flipX = false;
         }
-   
+
+    }
+
+    public void StartJumpForceChange()
+    {
+        if (!coroutineRunning)
+        {
+            StartCoroutine("JumpForceChange");
+        }
+        else
+        {
+            StopCoroutine("JumpForceChange");
+            jumpForce /= 2;
+            StopCoroutine("JumpForceChange");
+        }
+
     }
 }

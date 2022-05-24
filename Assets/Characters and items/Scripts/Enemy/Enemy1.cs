@@ -32,10 +32,7 @@ public class Enemy1 : MonoBehaviour
             groundCheck = GameObject.FindGameObjectWithTag("Ground Check").transform;
         }
 
-        if (!playerCheck)
-        {
-            playerCheck = GameObject.FindGameObjectsWithTag("Player Check").transform;
-        }
+     
 
         if (speed <= 0)
         {
@@ -47,20 +44,12 @@ public class Enemy1 : MonoBehaviour
             groundCheckRadius = 0.2f;
         }
 
-        if (playerRadius <= 0)
-        {
-            playerRadius = 3f;
-        }
+     
     }
 
     // Update is called once per frame
     void Update()
     {
-        isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, isGroundLayer);
-        nearPlayer = Physics2D.OverlapCircle(playerCheck.position, playerRadius, isplayerLayer);
-
-        Vector2 moveDirection = new Vector2(nearPlayer * speed, rb.velocity.y);
-        rb.velocity = moveDirection;
+      
     }
     }
-}
