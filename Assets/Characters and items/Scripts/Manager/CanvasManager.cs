@@ -77,9 +77,9 @@ public class CanvasManager : MonoBehaviour
         if (quitButton)
             quitButton.onClick.AddListener(() => QuitGame());
 
-      
-        if (livesText)
-            GameManager.instance.onLifeValueChanged.AddListener((value) => OnLifeValueChange(value));
+        
+       // if (livesText)
+           // GameManager.instance.onLifeValueChanged.AddListener((value) => OnLifeValueChange(value));
     }
 
     // Update is called once per frame
@@ -91,14 +91,14 @@ public class CanvasManager : MonoBehaviour
             {
                 pauseMenu.SetActive(!pauseMenu.activeSelf);
 
-              
+                //HINT FOR THE LAB
                 if (pauseMenu.activeSelf)
                 {
-                    
+                    //do something to pause
                 }
                 else
                 {
-                    
+                    //do something to unpause
                 }
             }
         }
@@ -106,22 +106,10 @@ public class CanvasManager : MonoBehaviour
 
     public void QuitGame()
     {
-        if (UnityEditor.EditorApplication.isPlaying = false;)
-
-        else
-        { Application.Quit();
-        }
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#else
+        Application.Quit();
+#endif
     }
 }
-© 2022 GitHub, Inc.
-Terms
-Privacy
-Security
-Status
-Docs
-Contact GitHub
-Pricing
-API
-Training
-Blog
-About

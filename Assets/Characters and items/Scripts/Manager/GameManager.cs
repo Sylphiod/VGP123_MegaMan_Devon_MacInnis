@@ -23,7 +23,7 @@ public class GameManager : MonoBehaviour
             if (_lives > value)
             {
                 Destroy(playerInstance.gameObject);
-                SpawnPlayer(currentLevel.spawnPoint);
+                //SpawnPlayer(currentLevel.spawnPoint);
             }
 
             _lives = value;
@@ -40,7 +40,7 @@ public class GameManager : MonoBehaviour
 
     public PlayerControl playerPrefab;
     [HideInInspector] public PlayerControl playerInstance;
-    [HideInInspector] public Level currentLevel;
+   // [HideInInspector] public Level currentLevel;
 
     // Start is called before the first frame update
     void Start()
