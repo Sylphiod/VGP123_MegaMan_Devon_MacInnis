@@ -94,11 +94,11 @@ public class CanvasManager : MonoBehaviour
                 //HINT FOR THE LAB
                 if (pauseMenu.activeSelf)
                 {
-                    //do something to pause
+                    
                 }
                 else
                 {
-                    //do something to unpause
+                    
                 }
             }
         }
