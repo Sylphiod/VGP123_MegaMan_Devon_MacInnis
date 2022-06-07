@@ -78,8 +78,8 @@ public class CanvasManager : MonoBehaviour
             quitButton.onClick.AddListener(() => QuitGame());
 
         
-       // if (livesText)
-           // GameManager.instance.onLifeValueChanged.AddListener((value) => OnLifeValueChange(value));
+        if (livesText)
+           GameManager.instance.onLifeValueChanged.AddListener((value) => OnLifeValueChange(value));
     }
 
     // Update is called once per frame
