@@ -28,16 +28,14 @@ public class PlayerControl : MonoBehaviour
         get { return _lives; }
         set
         {
-            //if (_lives > value)
-            //respawn code here
+           
 
             _lives = value;
 
             if (_lives > maxLives)
                 _lives = maxLives;
 
-            //if (_lives < 0)
-            //gameover
+           
 
             Debug.Log("Lives Set To: " + lives.ToString());
         }
@@ -99,10 +97,7 @@ public class PlayerControl : MonoBehaviour
         anim.SetBool("IsGrounded", isGrounded);
         anim.SetBool("shoot", Input.GetMouseButton(0));
 
-        // || is used to make two if statements into one && flipX || && !flpX
-
-        //if (horizontalInput !=0)
-        //{ sr.flipX = (horizontalInput <0); }
+       
         if (horizontalInput > 0.1f)
         {
             sr.flipX = true;

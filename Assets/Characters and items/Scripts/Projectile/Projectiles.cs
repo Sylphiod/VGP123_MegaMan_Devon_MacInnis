@@ -6,6 +6,7 @@ public class Projectiles : MonoBehaviour
 {
     public float speed;
     public float lifetime;
+    public int damageValue;
 
     void Start()
     {
@@ -21,10 +22,28 @@ public class Projectiles : MonoBehaviour
     {
         if (collision.gameObject.tag != "Player")
             Destroy(gameObject);
-        if (collision.gameObject.tag != "enemy")
-            Destroy(gameObject);
-   
 
-    
+
+        if (collision.gameObject.tag == "Enemy")
+        {
+            if (gameObject.tag == "PlayerProjectile")
+            {
+                Enemy e = collision.gameObject.GetComponent<Enemy>();
+
+                if (e)
+                    e.TakeDamage(damageValue);
+
+                Destroy(gameObject);
+            }
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Player" && gameObject.tag == "EnemyProjectile")
+        {
+            GameManager.instance.lives--;
+            Destroy(gameObject);
+        }
     }
 }

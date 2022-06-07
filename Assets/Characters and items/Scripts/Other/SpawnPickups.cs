@@ -7,7 +7,6 @@ public class SpawnPickups : MonoBehaviour
 
     public Collectible[] collectiblePrefabArray;
 
-    // Start is called before the first frame update
     void Start()
     {
         int RandValue = Random.Range(0, collectiblePrefabArray.Length);

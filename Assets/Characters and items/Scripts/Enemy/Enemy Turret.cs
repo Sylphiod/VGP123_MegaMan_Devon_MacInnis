@@ -2,19 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyTurret : MonoBehaviour
+public class EnemyTurret : Enemy
 {
     [SerializeField] float projectileForce;
     [SerializeField] float projectileFireRate;
+    [SerializeField] float turretFireDistance;
 
     float timeSinceLastFire;
 
     public Transform spawnPointLeft;
     public Transform spawnPointRight;
 
-    public Projectile projectilePrefab;
+    public Projectiles projectilePrefab;
 
-    // Start is called before the first frame update
+    Rigidbody2D rb;
+
+
     public override void Start()
     {
         base.Start();
@@ -24,6 +27,9 @@ public class EnemyTurret : MonoBehaviour
 
         if (projectileForce <= 0)
             projectileForce = 7.0f;
+
+        if (turretFireDistance <= 0)
+            turretFireDistance = 5.0f;
     }
 
     public override void Death()
@@ -61,12 +67,12 @@ public class EnemyTurret : MonoBehaviour
 
         if (pc.gameObject.transform.position.x < transform.position.x)
         {
-            Projectile temp = Instantiate(projectilePrefab, spawnPointLeft.position, spawnPointLeft.rotation);
+            Projectiles temp = Instantiate(projectilePrefab, spawnPointLeft.position, spawnPointLeft.rotation);
             temp.speed = -projectileForce;
         }
         else
         {
-            Projectile temp = Instantiate(projectilePrefab, spawnPointRight.position, spawnPointRight.rotation);
+            Projectiles temp = Instantiate(projectilePrefab, spawnPointRight.position, spawnPointRight.rotation);
             temp.speed = projectileForce;
         }
     }
