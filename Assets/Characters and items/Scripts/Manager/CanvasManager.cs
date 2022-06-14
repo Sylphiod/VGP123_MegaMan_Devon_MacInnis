@@ -77,6 +77,11 @@ public class CanvasManager : MonoBehaviour
         if (quitButton)
             quitButton.onClick.AddListener(() => QuitGame());
 
+        if (returnToMenuButton)
+            returnToMenuButton.onClick.AddListener(() => ReturnToMenu());
+
+        if (returnToGameButton)
+            returnToGameButton.onClick.AddListener(() => ReturnToGame());
         
         if (livesText)
            GameManager.instance.onLifeValueChanged.AddListener((value) => OnLifeValueChange(value));
@@ -94,15 +99,29 @@ public class CanvasManager : MonoBehaviour
                 //HINT FOR THE LAB
                 if (pauseMenu.activeSelf)
                 {
-                    
+                    Time.timeScale = 0;
+                    GameManager.instance.playerInstance.GetComponent<PlayerControl>().enabled = false;
+                    GameManager.instance.playerInstance.GetComponent<Shot>().enabled = false;
                 }
                 else
                 {
-                    
+                    Time.timeScale = 1;
+                    GameManager.instance.playerInstance.GetComponent<PlayerControl>().enabled = true;
+                    GameManager.instance.playerInstance.GetComponent<Shot>().enabled = true;
                 }
             }
         }
     }
+    public void ReturnToGame()
+    {
+        pauseMenu.SetActive(false);
+        Time.timeScale = 1;
+    }
+    public void ReturnToMenu()
+    {
+        SceneManager.LoadScene("Start");
+    }
+
 
     public void QuitGame()
     {

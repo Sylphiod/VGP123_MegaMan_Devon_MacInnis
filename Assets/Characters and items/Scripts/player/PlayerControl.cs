@@ -1,9 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 [RequireComponent(typeof(Rigidbody2D), typeof(Animator), typeof(SpriteRenderer))]
-
 public class PlayerControl : MonoBehaviour
 {
 
@@ -11,6 +11,11 @@ public class PlayerControl : MonoBehaviour
     Rigidbody2D rb;
     Animator anim;
     SpriteRenderer sr;
+    ObjectSounds sfxManager;
+
+    public AudioClip jumpSound;
+    public AudioMixerGroup soundFXGroup;
+
 
     public float speed;
     public int jumpForce;
@@ -47,6 +52,7 @@ public class PlayerControl : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         sr = GetComponent<SpriteRenderer>();
+        sfxManager = GetComponent<ObjectSounds>();
 
         if (!groundCheck)
         {
@@ -68,7 +74,10 @@ public class PlayerControl : MonoBehaviour
             groundCheckRadius = 0.2f;
         }
 
-
+        if (!sfxManager)
+        {
+            sfxManager = gameObject.AddComponent<ObjectSounds>();
+        }
     }
 
     void Update()
@@ -85,6 +94,7 @@ public class PlayerControl : MonoBehaviour
         {
             rb.velocity = Vector2.zero;
             rb.AddForce(Vector2.up * jumpForce);
+            sfxManager.Play(jumpSound, soundFXGroup);
         }
 
 
