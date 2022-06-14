@@ -11,6 +11,7 @@ public class Projectiles : MonoBehaviour
 
     ObjectSounds sfxManager;
     public AudioClip playerDeath;
+    public AudioClip enemyDeath;
     public AudioMixerGroup soundFXGroup;
 
     void Start()
@@ -39,6 +40,7 @@ public class Projectiles : MonoBehaviour
                     e.TakeDamage(damageValue);
 
                 Destroy(gameObject);
+                sfxManager.Play(enemyDeath, soundFXGroup);
             }
         }
     }
@@ -49,7 +51,7 @@ public class Projectiles : MonoBehaviour
         {
             GameManager.instance.lives--;
             Destroy(gameObject);
-            sfxManager.Play(PlayerDeath, soundFXGroup);
+            sfxManager.Play(playerDeath, soundFXGroup);
         }
     }
 }
