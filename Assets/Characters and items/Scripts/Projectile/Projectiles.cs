@@ -1,12 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class Projectiles : MonoBehaviour
 {
     public float speed;
     public float lifetime;
     public int damageValue;
+
+    ObjectSounds sfxManager;
+    public AudioClip playerDeath;
+    public AudioMixerGroup soundFXGroup;
 
     void Start()
     {
@@ -44,6 +49,7 @@ public class Projectiles : MonoBehaviour
         {
             GameManager.instance.lives--;
             Destroy(gameObject);
+            sfxManager.Play(PlayerDeath, soundFXGroup);
         }
     }
 }
