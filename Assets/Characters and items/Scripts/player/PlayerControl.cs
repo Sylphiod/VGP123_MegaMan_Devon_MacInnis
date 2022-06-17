@@ -14,6 +14,7 @@ public class PlayerControl : MonoBehaviour
     ObjectSounds sfxManager;
 
     public AudioClip jumpSound;
+    public AudioClip shotSound;
     public AudioMixerGroup soundFXGroup;
 
 
@@ -85,8 +86,10 @@ public class PlayerControl : MonoBehaviour
         float horizontalInput = Input.GetAxisRaw("Horizontal");
 
 
-
-
+        if (Input.GetMouseButtonDown(0))
+        {
+            sfxManager.Play(shotSound, soundFXGroup);
+        }
 
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, isGroundLayer);
 

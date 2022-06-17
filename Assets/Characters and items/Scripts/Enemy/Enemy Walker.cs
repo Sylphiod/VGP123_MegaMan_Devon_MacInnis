@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class EnemyWalker : Enemy
 {
 
     Rigidbody2D rb;
+    ObjectSounds sfxManager;
     [SerializeField] float speed;
 
    
@@ -20,9 +22,13 @@ public class EnemyWalker : Enemy
             speed = 3;
     }
 
+    public AudioClip TakeDamageSound;
+    public AudioMixerGroup soundFXGroup;
+
     public override void TakeDamage(int damage)
     {
         base.TakeDamage(damage);
+        sfxManager.Play(TakeDamageSound, soundFXGroup);
 
         Debug.Log("Enemy Walker took " + damage + " damage");
     }

@@ -116,10 +116,13 @@ public class CanvasManager : MonoBehaviour
     {
         pauseMenu.SetActive(false);
         Time.timeScale = 1;
+        GameManager.instance.playerInstance.GetComponent<PlayerControl>().enabled = true;
+        GameManager.instance.playerInstance.GetComponent<Shot>().enabled = true;
     }
     public void ReturnToMenu()
     {
         SceneManager.LoadScene("Start");
+        Time.timeScale = 1;
     }
 
 

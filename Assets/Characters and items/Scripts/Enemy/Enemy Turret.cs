@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class EnemyTurret : Enemy
 {
@@ -16,6 +17,14 @@ public class EnemyTurret : Enemy
     public Projectiles projectilePrefab;
 
     Rigidbody2D rb;
+    ObjectSounds sfxManager;
+
+
+
+    public AudioClip FireSound;
+
+    public AudioMixerGroup soundFXGroup;
+
 
 
     public override void Start()
@@ -74,6 +83,7 @@ public class EnemyTurret : Enemy
         {
             Projectiles temp = Instantiate(projectilePrefab, spawnPointRight.position, spawnPointRight.rotation);
             temp.speed = projectileForce;
+            sfxManager.Play(FireSound, soundFXGroup);
         }
     }
 
@@ -82,3 +92,5 @@ public class EnemyTurret : Enemy
         anim.SetBool("Fire", false);
     }
 }
+  
+    
