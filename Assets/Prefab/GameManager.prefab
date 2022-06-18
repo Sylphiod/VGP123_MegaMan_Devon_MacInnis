@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxLives: 3
-  playerPrefab: {fileID: 312659311509168712, guid: 145bcc43331ad9d4998d06221e0f0752, type: 3}
+  playerPrefab: {fileID: 739459151322938143, guid: 145bcc43331ad9d4998d06221e0f0752, type: 3}
   playerInstance: {fileID: 0}
   onLifeValueChanged:
     m_PersistentCalls:

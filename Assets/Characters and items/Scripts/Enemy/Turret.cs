@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
 
-public class EnemyTurret : enemy
+public class Turret : enemy
 {
     [SerializeField] float projectileForce;
     [SerializeField] float projectileFireRate;
@@ -16,7 +16,6 @@ public class EnemyTurret : enemy
 
     public Projectiles projectilePrefab;
 
-    Rigidbody2D rb;
     ObjectSounds sfxManager;
 
 
@@ -92,5 +91,3 @@ public class EnemyTurret : enemy
         anim.SetBool("Fire", false);
     }
 }
-  
-    
