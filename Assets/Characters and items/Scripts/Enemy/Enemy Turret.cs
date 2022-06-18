@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
 
-public class EnemyTurret : Enemy
+public class EnemyTurret : enemy
 {
     [SerializeField] float projectileForce;
     [SerializeField] float projectileFireRate;

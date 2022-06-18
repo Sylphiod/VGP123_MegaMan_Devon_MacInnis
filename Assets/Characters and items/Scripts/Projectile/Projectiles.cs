@@ -34,7 +34,7 @@ public class Projectiles : MonoBehaviour
         {
             if (gameObject.tag == "PlayerProjectile")
             {
-                Enemy e = collision.gameObject.GetComponent<Enemy>();
+                enemy e = collision.gameObject.GetComponent<enemy>();
 
                 if (e)
                     e.TakeDamage(damageValue);

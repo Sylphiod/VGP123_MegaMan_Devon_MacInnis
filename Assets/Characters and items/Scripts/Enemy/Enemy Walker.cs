@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.Audio;
 
 [RequireComponent(typeof(Rigidbody2D))]
-public class EnemyWalker : Enemy
+public class EnemyWalker : enemy
 {
 
     Rigidbody2D rb;

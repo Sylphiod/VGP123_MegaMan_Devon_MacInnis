@@ -2,8 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(SpriteRenderer), typeof(Animator))]
-public class Enemy : MonoBehaviour
+public class enemy : MonoBehaviour
 {
     protected SpriteRenderer sr;
     protected Animator anim;
@@ -32,7 +31,7 @@ public class Enemy : MonoBehaviour
 
     public virtual void Death()
     {
-        
+
     }
 
     public virtual void TakeDamage(int damage)
@@ -40,7 +39,7 @@ public class Enemy : MonoBehaviour
         health -= damage;
     }
 
-    
+
     public virtual void Start()
     {
         anim = GetComponent<Animator>();
