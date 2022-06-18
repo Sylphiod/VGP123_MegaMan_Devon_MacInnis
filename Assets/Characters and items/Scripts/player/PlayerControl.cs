@@ -86,7 +86,7 @@ public class PlayerControl : MonoBehaviour
         float horizontalInput = Input.GetAxisRaw("Horizontal");
 
 
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0so))
         {
             sfxManager.Play(shotSound, soundFXGroup);
         }
